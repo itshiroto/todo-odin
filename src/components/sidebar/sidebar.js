@@ -1,4 +1,4 @@
-import { clear as boardClear } from '../board/board.js'
+import { clearTodo as boardClear } from '../board/board.js'
 let menu = ["Primary", "Today", "Upcoming"];
 
 const base = () => {
@@ -8,7 +8,8 @@ const base = () => {
     "h-screen",
     "p-5",
     "bg-zinc-600",
-    "text-white"
+    "text-white",
+    "shrink-0"
   );
   return el;
 }

@@ -1,4 +1,22 @@
-import { render as renderToBoard } from './board/board.js'
+import { renderTodo as renderToBoard } from './board/board.js'
+
+const todo = (obj) => {
+  const base = document.createElement('div');
+  base.classList.add(
+    "flex",
+    "justify-between",
+    "py-1", "px-3",
+    "my-1",
+    "rounded-lg",
+    "hover:bg-zinc-700",
+    "transition"
+  )
+  base.append(
+    _title(obj.title),
+    _properties(obj.priority, obj.dueDate)
+  )
+  return base;
+}
 
 const _checkpoint = (condition) => {
   // TODO
@@ -53,20 +71,7 @@ const _properties = (priority, dueDate) => {
   return base;
 }
 
-export default (obj) => {
-  const base = document.createElement('div');
-  base.classList.add(
-    "flex",
-    "justify-between",
-    "py-1", "px-3",
-    "my-1",
-    "rounded-lg",
-    "hover:bg-zinc-700",
-    "transition"
-  )
-  base.append(
-    _title(obj.title),
-    _properties(obj.priority, obj.dueDate)
-  )
-  renderToBoard(base)
+export function render(obj) {
+  renderToBoard(todo(obj));
 }
+
